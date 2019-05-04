@@ -60,6 +60,8 @@ using namespace std;
 #include <build2/cc/init.hxx>
 #include <build2/cxx/init.hxx>
 
+#include <build2/moc/init.hxx>
+
 #ifndef BUILD2_BOOTSTRAP
 #  include <build2/cli/init.hxx>
 #  include <build2/bash/init.hxx>
@@ -441,6 +443,9 @@ main (int argc, char* argv[])
       bm["cxx.guess"] = mf {nullptr, &cxx::guess_init};
       bm["cxx.config"] = mf {nullptr, &cxx::config_init};
       bm["cxx"] = mf {nullptr, &cxx::init};
+
+      bm["moc.config"] = mf {nullptr, &moc::config_init};
+      bm["moc"] = mf { nullptr, &moc::init };
 
 #ifndef BUILD2_BOOTSTRAP
       bm["cli.config"] = mf {nullptr, &cli::config_init};
